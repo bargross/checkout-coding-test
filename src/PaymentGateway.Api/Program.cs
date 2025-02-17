@@ -28,6 +28,7 @@ builder.Services.AddSingleton<IBankClient>( _ =>
 {
     var client = new HttpClient();
     client.BaseAddress = new Uri("http://localhost:8080/");
+    client.Timeout = TimeSpan.FromSeconds(10);
     
     return new BankClient(client);
 });

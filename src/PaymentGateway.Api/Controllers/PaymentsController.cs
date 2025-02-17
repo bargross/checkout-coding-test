@@ -8,13 +8,12 @@ namespace PaymentGateway.Api.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class PaymentsController(IPaymentProcessor paymentProcessor) : Controller
+public class PaymentsController(IPaymentProcessor paymentProcessor) : ControllerBase
 {
 
     [HttpGet("{id:guid}")]
     [ProducesResponseType(typeof(GetPaymentResponse), 200)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<GetPaymentResponse?>> GetPaymentAsync(Guid id)
     {
         try
@@ -44,10 +43,6 @@ public class PaymentsController(IPaymentProcessor paymentProcessor) : Controller
         catch (BankNotAvailableException)
         {
             return StatusCode(502, "Bank validation service not available.");
-        }
-        catch (Exception ex)
-        {
-            return BadRequest(ex);
         }
     }
 }

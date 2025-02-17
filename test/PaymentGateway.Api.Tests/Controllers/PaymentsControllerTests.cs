@@ -30,7 +30,7 @@ public class PaymentsControllerTests
     }
     
     [Fact]
-    public async Task RequestsPayment_RetrievesPaymentSuccessfully()
+    public async Task RequestsPayment_PaymentFound_RetrievesPaymentSuccessfully()
     {
         // Arrange
         var payment = new Payment
@@ -56,7 +56,7 @@ public class PaymentsControllerTests
     }
 
     [Fact]
-    public async Task PaymentNotFound_Returns404()
+    public async Task RequestsPayment_PaymentNotFound_Returns404()
     {
         // Arrange
         // Act
