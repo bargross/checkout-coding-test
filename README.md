@@ -25,7 +25,7 @@ PaymentGateway.sln
 - In order to perform validation correctly, I decided to change the card number to a string type as is more flexible but it also adds multiple permutations to the possible param, so validation needs to be correct.
 - valdating the values is easier as well as it adds more flexibity in tests after.
 
-###### Required Attribute was added on the properties to avoid manual validation for simple things such as checking for nulls, empty, etc...
+Required Attribute was added on the properties to avoid manual validation for simple things such as checking for nulls, empty, etc...
 
 ###### Status
  - I decided to change this property to a string in the response models to avoid overcomplicating dezerialization (AKA errors.)
