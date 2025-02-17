@@ -59,4 +59,4 @@ This class was more my own flare to divide the validation responsability from th
 
 ##### Test Naming strategy
 
-[Action]_[State]_[Result]
+[Action] _ [State] _ [Result]
