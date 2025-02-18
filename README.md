@@ -60,3 +60,16 @@ This class was more my own flare to divide the validation responsability from th
 ##### Test Naming strategy
 
 [Action] _ [State] _ [Result]
+
+##### Improvements
+
+- Split validation into its own validation service so we can validate payments via other routes such as event driven architecture.
+- Setup clients configuration via app settings with appropriate models.
+- Hook integration tests with Bank Provider mock (but under the condition that the provider is for Tests only, I would not hook a prod service with tests).
+- Get rid of enums all together, it increases the amount of permutations for that enum and testing effort but is more flexible overall as enums tend to be rigid in event driven arch, implying changes will be needed everywhere if the enum changes whereas with strings it does not but it might require a enhancing checks.
+- Check for more responses in the client as we’ve not established what other responses the server might return.
+- Add response for general http errors such as a 500 in Middleware such as a global exception middleware.
+- Remove models with identical properties and unify them into a single DTO or view model.
+- Change the integration tests into service tests (they’re almost the same) but use SpecFlow & Cucumber so we can have them in a human readable form.
+- Maybe create a base class for integration tests (if enhanced further) to avoid the configuration at scope for every class and simplify the implementation of tests.
+- Maybe Change to gRPC as the communication is more seamless (might require re-implementing parts of the gateway).
