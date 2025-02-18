@@ -29,7 +29,7 @@ public class PaymentsController(IPaymentProcessor paymentProcessor) : Controller
     }
     
     [HttpPost]
-    [ProducesResponseType(typeof(GetPaymentResponse), 200)]
+    [ProducesResponseType(typeof(PostPaymentResponse), 200)]
     [ProducesResponseType(StatusCodes.Status502BadGateway)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<PostPaymentResponse?>> ProcessPayment(PostPaymentRequest request, CancellationToken cancellationToken = default)
