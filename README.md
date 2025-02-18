@@ -64,6 +64,7 @@ This class was more my own flare to divide the validation responsability from th
 ##### Improvements
 
 - Split validation into its own validation service so we can validate payments via other routes such as event driven architecture.
+  - Drawbacks include instantiation, which means additional boiler plate code for this.
 - Setup clients configuration via app settings with appropriate models.
 - Hook integration tests with Bank Provider mock (but under the condition that the provider is for Tests only, I would not hook a prod service with tests).
 - Get rid of enums all together, it increases the amount of permutations for that enum and testing effort but is more flexible overall as enums tend to be rigid in event driven arch, implying changes will be needed everywhere if the enum changes whereas with strings it does not but it might require a enhancing checks.
